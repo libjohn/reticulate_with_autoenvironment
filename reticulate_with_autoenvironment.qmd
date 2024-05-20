@@ -1,0 +1,47 @@
+---
+title: "reticulate_with_autoenvironment"
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+1 + 1
+```
+
+```{r}
+library(tidyverse)
+library(reticulate)
+```
+
+```{python}
+
+import pandas as pd
+
+my_pandas_df = pd.read_csv("data/brodhead_center.csv")
+
+```
+
+```{python}
+print(my_pandas_df)
+```
+
+```{python}
+
+my_pandas_df
+```
+
+```{r}
+py$my_pandas_df |> 
+  head()
+```
+
+
+```{r}
+#glimpse(py$my_pandas_df)
+
+py$my_pandas_df |> 
+  ggplot(aes(name)) +
+  geom_bar()
+```
